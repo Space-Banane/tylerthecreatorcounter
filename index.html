@@ -57,19 +57,17 @@
     <script>
         function updateCountdown() {
             const now = new Date();
-            
+            const localOffset = now.getTimezoneOffset() * 60 * 1000;
             const target = new Date('2024-10-28T10:00:00Z');
-            
-            const timeDiff = target - now;
+            const targetLocalTime = new Date(target.getTime() - localOffset);
+            const timeDiff = targetLocalTime - now;
         
-            // Check if countdown is finished
             if (timeDiff <= 0) {
                 document.getElementById("fuckthis").innerHTML = "";
                 document.getElementById("timer").innerHTML = "CHROMAKOPIA DROPPED";
                 return;
             }
         
-            // Calculate hours, minutes, and seconds
             const hours = Math.floor(timeDiff / (1000 * 60 * 60));
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
@@ -79,6 +77,7 @@
         
         setInterval(updateCountdown, 1000);
         updateCountdown();
+        
     </script>
 </body>
 
