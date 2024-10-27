@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHROMAKOPIA Countdown</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            /* Retro album vibe */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #0a0a0a; /* Darker background */
+            /* Darker background */
+            color: #00cc33; /* Slightly muted green text */
+            /* Neon pink for album aesthetic */
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #countdown {
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 10px rgba(0, 255, 68, 0.5), 0 0 20px rgba(0, 255, 68, 0.3), 0 0 30px rgba(0, 255, 68, 0.1);
+            /* Green neon glow */
+            animation: chroma-glow .7s infinite alternate;
+            /* Green neon glow animation */
+        }
+
+        @keyframes chroma-glow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 255, 68, 0.7), 0 0 20px rgba(0, 255, 68, 0.5), 0 0 30px rgba(0, 255, 68, 0.3);
+            }
+
+            to {
+                text-shadow: 0 0 20px rgba(0, 255, 68, 1), 0 0 30px rgba(0, 255, 68, 0.7), 0 0 40px rgba(0, 255, 68, 0.5);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="countdown">
+        <h4 id="fuckthis">CHROMAKOPIA drops in:</h4>
+        <h2 id="timer"></h2>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            let target = new Date(now);
+            target.setHours(11, 0, 0, 0);
+
+            if (now >= target) {
+                target.setDate(target.getDate() + 1);
+            }
+
+            const timeDiff = target - now;
+
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            if (hours === 0 && minutes === 0 && seconds === 0) {
+                document.getElementById("fuckthis").innerHTML = ""
+                document.getElementById("timer").innerHTML = "CHROMAKOPIA DROPPED"
+            }
+
+            document.getElementById('timer').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();  
+    </script>
+</body>
+
+</html>
