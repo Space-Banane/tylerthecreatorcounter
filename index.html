@@ -8,18 +8,15 @@
     <script defer data-domain="tyler.reversed.dev" src="https://analytics.reversed.dev/js/script.js"></script>
     <style>
         body {
-            background: #0a0a0a; /* Darker background */
+            background: #0a0a0a; 
         }
         #content {
             font-family: 'Courier New', Courier, monospace;
-            /* Retro album vibe */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 90vh;
-            /* Darker background */
-            color: #00cc33; /* Slightly muted green text */
-            /* Neon pink for album aesthetic */
+            color: #00cc33; 
             margin: 0;
             overflow: hidden;
         }
@@ -30,9 +27,7 @@
             text-align: center;
             position: relative;
             text-shadow: 0 0 10px rgba(0, 255, 68, 0.5), 0 0 20px rgba(0, 255, 68, 0.3), 0 0 30px rgba(0, 255, 68, 0.1);
-            /* Green neon glow */
             animation: chroma-glow .7s infinite alternate;
-            /* Green neon glow animation */
         }
 
         @keyframes chroma-glow {
@@ -62,30 +57,28 @@
     <script>
         function updateCountdown() {
             const now = new Date();
-            let target = new Date(now);
-            target.setHours(11, 0, 0, 0);
-
-            if (now >= target) {
-                target.setDate(target.getDate() + 1);
-            }
-
+            
+            const target = new Date('2024-10-28T10:00:00Z');
+            
             const timeDiff = target - now;
-
-            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        
+            // Check if countdown is finished
+            if (timeDiff <= 0) {
+                document.getElementById("fuckthis").innerHTML = "";
+                document.getElementById("timer").innerHTML = "CHROMAKOPIA DROPPED";
+                return;
+            }
+        
+            // Calculate hours, minutes, and seconds
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-            if (hours === 0 && minutes === 0 && seconds === 0) {
-                document.getElementById("fuckthis").innerHTML = ""
-                document.getElementById("timer").innerHTML = "CHROMAKOPIA DROPPED"
-            }
-
+        
             document.getElementById('timer').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-
         }
-
+        
         setInterval(updateCountdown, 1000);
-        updateCountdown();  
+        updateCountdown();
     </script>
 </body>
 
