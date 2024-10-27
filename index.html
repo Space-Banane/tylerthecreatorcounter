@@ -58,7 +58,7 @@
         function updateCountdown() {
             const now = new Date();
             const localOffset = now.getTimezoneOffset() * 60 * 1000;
-            const target = new Date('2024-10-28T10:00:00Z');
+            const target = new Date('2024-10-28T9:00:00Z');
             const targetLocalTime = new Date(target.getTime() - localOffset);
             const timeDiff = targetLocalTime - now;
         
