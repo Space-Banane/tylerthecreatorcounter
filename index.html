@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHROMAKOPIA Countdown</title>
+    <script defer data-domain="tyler.reversed.dev" src="https://analytics.reversed.dev/js/script.js"></script>
     <style>
         body {
+            background: #0a0a0a; /* Darker background */
+        }
+        #content {
             font-family: 'Courier New', Courier, monospace;
             /* Retro album vibe */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: #0a0a0a; /* Darker background */
+            height: 90vh;
             /* Darker background */
             color: #00cc33; /* Slightly muted green text */
             /* Neon pink for album aesthetic */
@@ -46,10 +49,15 @@
 </head>
 
 <body>
+    <div id="content">
     <div id="countdown">
         <h4 id="fuckthis">CHROMAKOPIA drops in:</h4>
         <h2 id="timer"></h2>
     </div>
+</div>
+    <footer style="text-align: center; color:white;">
+        Visit Tracked - <a href="https://reversed.dev/privacy">Privacy</a>
+    </footer>
 
     <script>
         function updateCountdown() {
