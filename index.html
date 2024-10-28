@@ -47,9 +47,8 @@
 <body>
     <div id="content">
     <div id="countdown">
-        <h4 id="fuckthis">CHROMAKOPIA drops in:</h4>
         <h2 id="timer"></h2>
-    </div>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0U28P0QVB1QRxpqp5IHOlH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>    </div>
 </div>
     <footer style="text-align: center; color:white;">
         Visit Tracked - <a href="https://reversed.dev/privacy">Privacy</a>
@@ -63,8 +62,7 @@
             const timeDiff = target.getTime() - now.getTime(); 
     
             if (timeDiff <= 0) {
-                document.getElementById("fuckthis").innerHTML = "";
-                document.getElementById("timer").innerHTML = "CHROMAKOPIA (probably) DROPPED";
+                document.getElementById("timer").innerHTML = "CHROMAKOPIA DROPPED";
                 return;
             }
     
